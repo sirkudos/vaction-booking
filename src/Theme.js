@@ -4,5 +4,6 @@ export const Theme = {
         neutralColor: "#fff",
         secondaryColor: "#CF6420",
         tertiaryColor: "#808080",
+        generalColor: "#000",
     },
 };

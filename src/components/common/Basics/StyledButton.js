@@ -7,5 +7,6 @@ export const StyledButton = styled.button `
   font-size: ${({ fontSize }) => fontSize || "1.8rem"};
   background-color: ${({ background }) => background};
   color: ${({ color }) => color || "#fff"};
+  width: ${({ width }) => width};
   border-radius: ${({ borderRadius }) => borderRadius || "0.5rem"};
 `;

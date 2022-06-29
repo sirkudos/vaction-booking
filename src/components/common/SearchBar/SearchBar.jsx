@@ -10,9 +10,10 @@ import CalendarMonthIcon from "@mui/icons-material/CalendarMonth";
 import ManIcon from "@mui/icons-material/Man";
 import { Theme } from "../../../Theme";
 import DatePicker from "../DatePicker/DatePicker";
-
+import { useNavigate } from "react-router-dom";
 const SearchBar = ({ type }) => {
   const [openOption, setOpenOption] = useState(false);
+  const [destination, setDestination] = useState();
   const [options, setOptions] = useState({
     Adult: 1,
     Children: 0,
@@ -27,6 +28,12 @@ const SearchBar = ({ type }) => {
           operation === "increase" ? options[name] + 1 : options[name] - 1,
       };
     });
+  };
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/hotels", { state: { options, destination } });
   };
   return (
     <>
@@ -49,8 +56,9 @@ const SearchBar = ({ type }) => {
                 <HotelIcon fontSize="large" style={{ color: "gray" }} />
                 <StyledInput
                   type="text"
-                  placeholder="Where are you going"
+                  placeholder="Where are you going?"
                   color={Theme.colors.tertiaryColor}
+                  onChange={(e) => setDestination(e.target.value)}
                 />
               </StyledFlexWrapper>
 
@@ -76,6 +84,7 @@ const SearchBar = ({ type }) => {
                   <StyledFlexWrapper
                     flexDirection="column"
                     gap="1rem"
+                    padding="1rem 0 1rem 0"
                     alignItems="center"
                     position="absolute"
                     top="5rem"
@@ -201,7 +210,10 @@ const SearchBar = ({ type }) => {
                   </StyledFlexWrapper>
                 )}
               </StyledFlexWrapper>
-              <StyledButton background={Theme.colors.secondaryColor}>
+              <StyledButton
+                background={Theme.colors.secondaryColor}
+                onClick={handleSearch}
+              >
                 Search
               </StyledButton>
             </StyledFlexWrapper>

@@ -20,4 +20,6 @@ export const StyledFlexWrapper = styled.div `
   left: ${({ left }) => left};
   z-index: ${({ zIndex }) => zIndex};
   min-width: ${({ minWidth }) => minWidth};
+  flex: ${({ flex }) => flex};
+  border-top: ${({ borderTop }) => borderTop};
 `;

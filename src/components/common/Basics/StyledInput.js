@@ -6,4 +6,5 @@ export const StyledInput = styled.input `
   padding: ${({ padding }) => padding || "1rem"};
   font-size: ${({ fontSize }) => fontSize || "1.8rem"};
   width: ${({ width }) => width || "100%"};
+  border-radius: ${({ borderRadius }) => borderRadius || "0.5rem"};
 `;
